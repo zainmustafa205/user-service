@@ -32,7 +32,7 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
                 // Public endpoints
-                .requestMatchers("api/v1/auth/**").permitAll()
+                .requestMatchers("v1/auth/**").permitAll()
                 // Everything else requires authentication
                 .anyRequest().authenticated()
             )
