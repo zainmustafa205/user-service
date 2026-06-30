@@ -31,9 +31,9 @@ Set these before running the service:
 
 |Method| Endpoint                | Auth Required | Description            |
 |------|-------------------------|---------------|------------------------|
-| POST | `/api/v1/auth/register` | ❌            | Register new user      |
-| POST | `/api/v1/auth/login`    | ❌            | Login, returns JWTnn   |
-| GET  | `/api/v1/auth/me`       | ✅ Bearer     | Get current user info  |
+| POST | `/v1/auth/register` | ❌            | Register new user      |
+| POST | `/v1/auth/login`    | ❌            | Login, returns JWTnn   |
+| GET  | `/v1/auth/me`       | ✅ Bearer     | Get current user info  |
 
 ## Running Locally
 Make sure Eureka Server is running on port `8761` before starting this service.
