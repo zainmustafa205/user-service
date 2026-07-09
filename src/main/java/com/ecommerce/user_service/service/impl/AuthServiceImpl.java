@@ -6,6 +6,7 @@ import com.ecommerce.user_service.dto.response.AuthResponse;
 import com.ecommerce.user_service.dto.response.UserResponse;
 import com.ecommerce.user_service.entity.User;
 import com.ecommerce.user_service.enums.Role;
+import com.ecommerce.user_service.exception.ResourceNotFoundException;
 import com.ecommerce.user_service.exception.UserAlreadyExistsException;
 import com.ecommerce.user_service.repository.UserRepository;
 import com.ecommerce.user_service.security.JwtService;
@@ -102,4 +103,6 @@ public class AuthServiceImpl implements AuthService {
                 .role(user.getRole().name())
                 .build();
     }
+
+
 }

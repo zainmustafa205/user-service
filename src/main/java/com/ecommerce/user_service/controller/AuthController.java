@@ -33,6 +33,8 @@ public class AuthController {
         return ResponseEntity.ok(authService.login(request));
     }
 
+
+
     @GetMapping("/me")
     public ResponseEntity<UserResponse> getCurrentUser(
             @AuthenticationPrincipal UserDetails userDetails) {

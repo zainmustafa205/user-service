@@ -42,6 +42,16 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
 
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleResourceNotFound (
+            ResourceNotFoundException ex) {
+
+        Map<String, Object> response = buildErrorResponse(
+                HttpStatus.CONFLICT, ex.getMessage(), null);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+
     // Wrong email/password
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<Map<String, Object>> handleBadCredentials(
