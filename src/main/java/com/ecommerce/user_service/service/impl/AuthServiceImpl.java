@@ -104,5 +104,17 @@ public class AuthServiceImpl implements AuthService {
                 .build();
     }
 
+    @Override
+    public UserResponse getUserById(Long id) {
+    User user = userRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
+
+        return new UserResponse(
+               user.getId(),
+               user.getUsername(),
+               user.getEmail(),
+               user.getRole().name()   // agar aapke User entity mein "active" field ka naam different hai, adjust kar lena
+                );
+    }
 
 }
