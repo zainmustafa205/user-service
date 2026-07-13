@@ -12,6 +12,10 @@ import com.ecommerce.user_service.repository.UserRepository;
 import com.ecommerce.user_service.security.JwtService;
 import com.ecommerce.user_service.service.AuthService;
 import lombok.RequiredArgsConstructor;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -44,8 +48,11 @@ public class AuthServiceImpl implements AuthService {
 
         userRepository.save(user);
 
+        Map<String, Object> extraClaims = new HashMap<>();
+        extraClaims.put("userId", user.getId());
+        
         // Generate JWT
-        String token = jwtService.generateToken(user);
+        String token = jwtService.generateToken(extraClaims, user);
 
         UserResponse userResponse = UserResponse.builder()
         .id(user.getId())
@@ -75,7 +82,10 @@ public class AuthServiceImpl implements AuthService {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow();
 
-        String token = jwtService.generateToken(user);
+        Map<String, Object> extraClaims = new HashMap<>();
+        extraClaims.put("userId", user.getId());
+
+        String token = jwtService.generateToken(extraClaims, user);
 
         UserResponse userResponse = UserResponse.builder()
         .id(user.getId())
