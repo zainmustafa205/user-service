@@ -8,7 +8,7 @@ Authentication and user management microservice for the E-Commerce Microservices
 
 `user-service` is one of Six microservices in a larger e-commerce system. It owns the **user and authentication domain** — registering new users, validating credentials at login, issuing signed JWT tokens, and exposing user identity endpoints that other services call to verify callers. It is the **only service in the system that issues JWTs** — all other services only validate tokens signed here.
 
-> This service is part of a larger system. See the [main project README](#) for the full architecture and links to all repositories.
+> This service is part of a larger system. See the [main project README](https://github.com/zainmustafa205/ecommerce-microservices) for the full architecture and links to all repositories.
 
 ### Part of the E-Commerce Microservices Ecosystem
 
